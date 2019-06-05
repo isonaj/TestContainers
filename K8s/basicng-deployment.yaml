@@ -1,0 +1,20 @@
+---
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  name: basicng-deployment
+spec:
+  replicas: 2
+  template:
+    metadata:
+      name: basicng-pod
+      labels:
+        app: basicng
+    spec:
+      containers:
+      - name: basicng
+        image: isonaj/basicng
+        ports:
+        - containerPort: 80
+      nodeSelector:
+        beta.kubernetes.io/os: linux

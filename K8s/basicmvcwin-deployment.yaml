@@ -1,0 +1,20 @@
+---
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  name: basicmvcwin-deployment
+spec:
+  replicas: 2
+  template:
+    metadata:
+      name: basicmvcwin-pod
+      labels:
+        app: basicmvcwin
+    spec:
+      containers:
+      - name: basicmvcwin
+        image: isonaj/basicmvcwin
+        ports:
+        - containerPort: 80
+      nodeSelector:
+        beta.kubernetes.io/os: windows

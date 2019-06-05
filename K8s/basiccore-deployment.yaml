@@ -1,0 +1,20 @@
+---
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  name: basiccore-deployment
+spec:
+  replicas: 2
+  template:
+    metadata:
+      name: basiccore-pod
+      labels:
+        app: basiccore
+    spec:
+      containers:
+      - name: basiccore
+        image: isonaj/basiccore
+        ports:
+        - containerPort: 80
+      nodeSelector:
+        beta.kubernetes.io/os: linux

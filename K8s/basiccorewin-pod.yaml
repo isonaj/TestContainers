@@ -1,0 +1,15 @@
+---
+apiVersion: v1
+kind: Pod
+metadata:
+  name: basiccorewin-pod
+  labels:
+    app: basiccorewin
+spec:
+  containers:
+  - name: basiccorewin
+    image: isonaj/basiccorewin
+    ports:
+    - containerPort: 80
+  nodeSelector:
+    beta.kubernetes.io/os: windows
