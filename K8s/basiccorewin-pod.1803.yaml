@@ -8,13 +8,8 @@ metadata:
 spec:
   containers:
   - name: basiccorewin
-    image: isonaj/basiccorewin
+    image: isonaj/basiccorewin:1803
     ports:
     - containerPort: 80
   nodeSelector:
     beta.kubernetes.io/os: windows
-  tolerations:
-  - key: "sku"
-    operator: "Equal"
-    value: "win"
-    effect: "NoSchedule"

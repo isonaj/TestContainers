@@ -1,0 +1,39 @@
+---
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  name: testdb-deployment
+spec:
+  replicas: 1
+  template:
+    metadata:
+      name: testdb-pod
+      labels:
+        app: testdb
+    spec:
+      containers:
+      - name: testdb
+        image: isonaj/testdb
+        ports:
+        - containerPort: 80
+        - containerPort: 443
+        livenessProbe:
+          httpGet:
+            path: /health/live
+            port: 80
+          initialDelaySeconds: 3
+          periodSeconds: 3
+          timeoutSeconds: 2
+          failureThreshold: 4
+          successThreshold: 1
+        readinessProbe:
+          httpGet:
+            path: /health/ready
+            port: 80
+          initialDelaySeconds: 5
+          periodSeconds: 5
+          timeoutSeconds: 2
+          failureThreshold: 4
+          successThreshold: 2
+      nodeSelector:
+        beta.kubernetes.io/os: linux
