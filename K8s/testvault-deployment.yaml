@@ -1,0 +1,22 @@
+---
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  name: testvault
+spec:
+  replicas: 1
+  template:
+    metadata:
+      name: testvault-pod
+      labels:
+        app: testvault
+        aadpodidbinding: myidentity
+    spec:
+      containers:
+      - name: testvault
+        image: isonaj/testvault
+        ports:
+        - containerPort: 80
+        - containerPort: 443
+      nodeSelector:
+        beta.kubernetes.io/os: linux

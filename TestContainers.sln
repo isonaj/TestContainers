@@ -11,7 +11,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BasicCoreWin", "BasicCoreWi
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BasicMvcWin", "BasicMvcWin\BasicMvcWin.csproj", "{283DDC9D-0946-420B-B7AB-0F27FB685913}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestDb", "TestDb\TestDb.csproj", "{616F99E6-D5FE-440C-86D3-9C06B4194FE6}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TestDb", "TestDb\TestDb.csproj", "{616F99E6-D5FE-440C-86D3-9C06B4194FE6}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestVault", "TestVault\TestVault.csproj", "{0B823CAC-249A-409B-8E7B-02E4CA65C67F}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -35,6 +37,10 @@ Global
 		{616F99E6-D5FE-440C-86D3-9C06B4194FE6}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{616F99E6-D5FE-440C-86D3-9C06B4194FE6}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{616F99E6-D5FE-440C-86D3-9C06B4194FE6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0B823CAC-249A-409B-8E7B-02E4CA65C67F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0B823CAC-249A-409B-8E7B-02E4CA65C67F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0B823CAC-249A-409B-8E7B-02E4CA65C67F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0B823CAC-249A-409B-8E7B-02E4CA65C67F}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
