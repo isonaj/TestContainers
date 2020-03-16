@@ -1,0 +1,39 @@
+---
+kind: Service
+apiVersion: v1
+metadata:
+  name: registry
+  namespace: docker-registry
+spec:
+  selector:
+    app: registry
+  ports:
+    - port: 5000
+      targetPort: 5000
+---
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  name: registry
+spec:
+  replicas: 1
+  template:
+    metadata:
+      name: registry
+      labels:
+        app: registry
+    spec:
+      containers:
+      - name: registry
+        image: registry:2
+        imagePullPolicy: Always
+        ports:
+        - containerPort: 5000
+        volumes:
+        - name: registry-data
+      volumeMounts:
+      - mountPath: /var/lib/registry
+        name: registry-data
+      nodeSelector:
+        beta.kubernetes.io/os: linux
+   

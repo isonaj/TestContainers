@@ -13,15 +13,15 @@ spec:
     spec:
       containers:
       - name: winbuild
-        image: isonaj/win-build
+        image: isonaj/winbuild
         env:
-        - name: TFS_URL
+        - name: AZP_URL
           value: https://dev.azure.com/ssw
-        - name: TFS_PAT
+        - name: AZP_TOKEN
           value: l4pkotv7bovab5hebl3rux6cgpbvycl4cxo6xdy3srwaxokfgd4q
-        - name: TFS_POOL_NAME
+        - name: AZP_POOL
           value: on-premise
-        - name: TFS_AGENT_NAME
+        - name: AZP_AGENT_NAME
           value: isonaj-aks
       nodeSelector:
         beta.kubernetes.io/os: windows

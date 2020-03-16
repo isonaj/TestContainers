@@ -22,6 +22,7 @@ namespace TestVault
 
         public static IWebHostBuilder CreateWebHostBuilder(string[] args) =>
             WebHost.CreateDefaultBuilder(args)
+            /*
                 .ConfigureAppConfiguration((ctx, builder) =>
                 {
                     var config = builder.Build();
@@ -35,7 +36,7 @@ namespace TestVault
                         builder.AddAzureKeyVault(
                             keyVaultEndpoint, keyVaultClient, new DefaultKeyVaultSecretManager());
                     }
-                })
+                })*/
                 .UseStartup<Startup>();
     }
 }

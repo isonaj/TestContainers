@@ -2,17 +2,17 @@
 apiVersion: extensions/v1beta1
 kind: Deployment
 metadata:
-  name: winbuild
+  name: win-build
 spec:
   replicas: 1
   template:
     metadata:
-      name: winbuild
+      name: win-build
       labels:
-        app: winbuild
+        app: win-build
     spec:
       containers:
-      - name: winbuild
+      - name: win-build
         image: isonaj/win-build
         env:
         - name: TFS_URL
@@ -22,6 +22,6 @@ spec:
         - name: TFS_POOL_NAME
           value: on-premise
         - name: TFS_AGENT_NAME
-          value: isonaj-aks
+          value: isonaj-aks2
       nodeSelector:
         beta.kubernetes.io/os: windows

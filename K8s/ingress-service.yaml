@@ -1,0 +1,38 @@
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  name: ingress
+  annotations:
+    kubernetes.io/ingress.class: "nginx"
+    nginx.ingress.kubernetes.io/affinity: "cookie"
+    nginx.ingress.kubernetes.io/session-cookie-name: "route"
+    nginx.ingress.kubernetes.io/session-cookie-hash: "sha1"
+#    nginx.ingress.kubernetes.io/rewrite-target: /site
+#    ingress.kubernetes.io/configuration-snippet: |
+#    #This regex works very well
+#        if ($host = 'test.toto.[a-z]') {
+#          rewrite ^ test.toto.com/[a-z]$request_uri permanent;
+#        }  
+
+spec:
+#  tls:
+#  - hosts:
+#    - demo.azure.com
+#    secretName: aks-ingress-tls
+
+  rules:
+  - host: "*.api.artisansoftware.com.au"
+    http:
+      paths:
+      - path: /
+        backend:
+          serviceName: testvault-service
+          servicePort: 80
+
+  - host: "*.artisansoftware.com.au"
+    http:
+      paths:
+      - path: /
+        backend:
+          serviceName: testdb-service
+          servicePort: 80
